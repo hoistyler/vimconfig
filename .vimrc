@@ -1,3 +1,9 @@
+" It is essential that these lines are called before enabling filetype detection, so I would recommend putting them at the top of your vimrc file.
+" pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+
 " ~/.vimrc (configuration file for vim only)
 " skeletons
 function! SKEL_spec()
@@ -56,8 +62,6 @@ set nocompatible "this must be first, because it changes other options as side e
                  "this option stops vim from behaving in a strongly vi -compatible way. 
                  "It should be at the start of any vimrc file as it can affect lots of other options which you may want to override
 
-" pathogen
-execute pathogen#infect()
 syntax on
 
 set t_Co=256    "256 color

@@ -120,11 +120,13 @@ call TAGS_Load("tags_platform")
 
 
 " My Colors
-if &diff
-    colorscheme mustang
-else
-    colorscheme solarized
-endif
+" if &diff
+"     colorscheme mustang
+" else
+"     colorscheme solarized
+" endif
+
+colorscheme molokai
 
 
 "remove any window stuff

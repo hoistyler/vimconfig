@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic/conf'
+let g:netrw_dirhist_2='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic'
+let g:netrw_dirhist_3='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic/code/common/reels'
+let g:netrw_dirhist_4='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic/code/common'
+let g:netrw_dirhist_5='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic/code'
+let g:netrw_dirhist_6='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic'
+let g:netrw_dirhist_7='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic/code'
+let g:netrw_dirhist_8='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic/code/vault_feature'
+let g:netrw_dirhist_9='/home/francisp/dev/NSW/W4NWX06B-001/games/egm/diamond_magic/code/common/shared'

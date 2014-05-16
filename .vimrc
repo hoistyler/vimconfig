@@ -97,6 +97,9 @@ set switchbuf=split " opens files from quickfix to split
 
 set path=game/**,../../platform/src/**
 
+
+set wildignore+=*.so,*.d,*.o
+
 "make vim use bash with .bashrc loaded (Does not work with vimdiff?)
 "set shell=bash 
 let $BASH_ENV = '~/.bashrc'
@@ -127,6 +130,7 @@ call TAGS_Load("tags_platform")
 " endif
 
 colorscheme molokai
+set background=light
 
 
 "remove any window stuff

@@ -130,7 +130,7 @@ call TAGS_Load("tags_platform")
 " endif
 
 colorscheme molokai
-set background=light
+set background=dark
 
 
 "remove any window stuff

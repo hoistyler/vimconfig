@@ -95,8 +95,9 @@ set noerrorbells    "don't beep
 set splitright " new window on the right instead of on the left
 set switchbuf=split " opens files from quickfix to split
 
-set path=game/**,../../platform/src/**
+set path=./**,../../../platform/src/**
 
+set grepprg=grep\ -n\ --exclude=*.d\ $*\ /dev/null
 
 set wildignore+=*.so,*.d,*.o
 
@@ -115,8 +116,15 @@ autocmd BufEnter * set cin | set cino=:0 | set nowrap
 " characters 
 "autocmd VimLeave * :set term=xterm-256color
 
-nnoremap <silent> <C-L> :nohls<CR><C-L>
-inoremap <silent> <C-L> <C-O>:nohls<CR><C-L>
+" Clear selection
+nnoremap <silent> <C-L> :nohls<CR>
+inoremap <silent> <C-L> <C-O>:nohls<CR>
+
+" Search Game
+nnoremap <F11> :grep -rI <C-R><C-W> code
+
+" Search Platform
+nnoremap <F12> :grep -rI <C-R><C-W> ../../../platform/src
 
 " Load tags automatically
 call TAGS_Load("tags_platform")

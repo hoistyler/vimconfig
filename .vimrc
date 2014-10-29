@@ -137,10 +137,10 @@ nnoremap <silent> <C-L> :nohls<CR>
 inoremap <silent> <C-L> <C-O>:nohls<CR>
 
 " Search Game
-nnoremap <F11> :grep -rI <C-R><C-W> code
+nnoremap <F11> :grep! -rI <C-R><C-W> code
 
 " Search Platform
-nnoremap <F12> :grep -rI <C-R><C-W> ../../../platform/src
+nnoremap <F12> :grep! -rI <C-R><C-W> ../../../platform/src
 
 " Load tags automatically
 call TAGS_Load("tags_platform")

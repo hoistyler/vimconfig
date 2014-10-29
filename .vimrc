@@ -95,7 +95,7 @@ set noerrorbells    "don't beep
 set splitright " new window on the right instead of on the left
 set switchbuf=split " opens files from quickfix to split
 
-set path=./**,../../../platform/src/**
+set path=.,../../../platform/src/**,**
 
 set grepprg=grep\ -n\ --exclude=*.d\ $*\ /dev/null
 
@@ -109,12 +109,28 @@ set shellcmdflag=-O\ expand_aliases\ -c
 
 autocmd BufEnter * set cin | set cino=:0 | set nowrap
 "autocmd BufWritePost *.c,*.h,*.cpp,*.hpp execute "call Re_GameTAG()"
+
+" CtrlP options
+" this will ignore changing directories.
+let g:ctrlp_working_path_mode = 0
+
+
+" Automatically open, but do not go to (if there are errors) the quickfix /
+" location list window, or close it when is has become empty.
 "
+" Note: Must allow nesting of autocmds to enable any customizations for quickfix
+" buffers.
+" Note: Normally, :cwindow jumps to the quickfix window if the command opens it
+" (but not if it's already open). However, as part of the autocmd, this doesn't
+" seem to happen.
+"autocmd QuickFixCmdPost [^l]* nested botright cwindow
+"autocmd QuickFixCmdPost    l* nested botright lwindow
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
+" automatically position quickfix window (qf) to bottom
+autocmd FileType qf wincmd J
 
-" below line seems to have broken vim exit where it prints out random
-" characters 
-"autocmd VimLeave * :set term=xterm-256color
 
 " Clear selection
 nnoremap <silent> <C-L> :nohls<CR>
@@ -164,31 +180,6 @@ else
     set statusline+=%l/%L,                          "cursor line/total lines
     set statusline+=\ %P,                           "percent throught file
 end
-
-" My search key maps
-"nnoremap <F2> :Egrep -RI
-"Grep
-"let Grep_Default_Filelist='game'
-"let Grep_Skip_Files='*.d *.o'
-
-if has("gui_running")
-    "font
-    set guifont=Liberation\ Mono\ 12
-    "keymap for CTRL space
-    "gvim does not recieve C-@ as Null like terminal.
-    " this is to get cscope keymaps to work
-    nmap <C-Space> <C-@>
-    nmap <C-Space><C-Space> <C-@><C-@>
-else
-endif
-
-"F5 to refresh
-nnoremap <silent><F5> :e<CR>
-
-"make keys
-nnoremap <silent><F7> :make clean<CR>
-nnoremap <silent><F6> :make games<CR>
-
 
 " Close Buffer key map
 nnoremap <silent><F9> :bd<CR>

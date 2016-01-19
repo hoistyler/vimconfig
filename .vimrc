@@ -3,7 +3,6 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-
 " ~/.vimrc (configuration file for vim only)
 " skeletons
 function! SKEL_spec()
@@ -173,7 +172,7 @@ else
     set statusline+=%{&ff}]                         "file format
     set statusline+=%h                              "help file flag
     set statusline+=%m                              "modified flag
-    set statusline+=%r                              "read onlt flag
+    set statusline+=%r                              "read only flag
     set statusline+=%y                              "filetyle
     set statusline+=%=                              "left/right separator
     set statusline+=%c,                             "cursor column

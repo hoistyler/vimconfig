@@ -63,7 +63,13 @@ set nocompatible "this must be first, because it changes other options as side e
 
 syntax on
 
-set t_Co=256    "256 color
+if !has("gui_running")
+    set term=xterm
+    set t_Co=256    "256 color
+    let &t_AB="\e[48;5;%dm"
+    let &t_AF="\e[38;5;%dm"
+endif
+
 set mouse=a     "enable mouse"
 set tabstop=4   "a tab is four spaces"
 set expandtab   "tab as spaces"
@@ -94,20 +100,7 @@ set noerrorbells    "don't beep
 set splitright " new window on the right instead of on the left
 set switchbuf=split " opens files from quickfix to split
 
-set path=.,../../../platform/src/**,**
-
-set grepprg=grep\ -n\ --exclude=*.d\ $*\ /dev/null
-
-set wildignore+=*.so,*.d,*.o
-
-"make vim use bash with .bashrc loaded (Does not work with vimdiff?)
-"set shell=bash 
-let $BASH_ENV = '~/.bashrc'
-set shellcmdflag=-O\ expand_aliases\ -c
-"set shellcmdflag=-ic
-
 autocmd BufEnter * set cin | set cino=:0 | set nowrap
-"autocmd BufWritePost *.c,*.h,*.cpp,*.hpp execute "call Re_GameTAG()"
 
 " CtrlP options
 " this will ignore changing directories.
@@ -135,26 +128,10 @@ autocmd FileType qf wincmd J
 nnoremap <silent> <C-L> :nohls<CR>
 inoremap <silent> <C-L> <C-O>:nohls<CR>
 
-" Search Game
-nnoremap <F11> :grep! -rI <C-R><C-W> code
-
-" Search Platform
-nnoremap <F12> :grep! -rI <C-R><C-W> ../../../platform/src
-
 " Load tags automatically
 call TAGS_Load("tags_platform")
 
-
-" My Colors
-" if &diff
-"     colorscheme mustang
-" else
-"     colorscheme solarized
-" endif
-
-colorscheme molokai
-set background=dark
-
+colorscheme apprentice
 
 "remove any window stuff
 if has('gui')
@@ -183,5 +160,26 @@ end
 " Close Buffer key map
 nnoremap <silent><F9> :bd<CR>
 
-"""""""""""""""""""" Below for vim scripts
 
+"""""""""""""""""""" Below for vim scripts
+if has("win32")
+    if has("gui_running")
+        "Make initial window little larger
+        set lines=80 columns=200
+    endif
+else
+    "make vim use bash with .bashrc loaded (Does not work with vimdiff?)
+    "set shell=bash 
+    let $BASH_ENV = '~/.bashrc'
+    set shellcmdflag=-O\ expand_aliases\ -c
+
+    set path=.,../../../platform/src/**,**
+    set grepprg=grep\ -n\ --exclude=*.d\ $*\ /dev/null
+    set wildignore+=*.so,*.d,*.o
+
+    " Search Game
+    nnoremap <F11> :grep! -rI <C-R><C-W> code
+
+    " Search Platform
+    nnoremap <F12> :grep! -rI <C-R><C-W> ../../../platform/src
+endif

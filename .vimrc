@@ -128,10 +128,8 @@ autocmd FileType qf wincmd J
 nnoremap <silent> <C-L> :nohls<CR>
 inoremap <silent> <C-L> <C-O>:nohls<CR>
 
-" Load tags automatically
-call TAGS_Load("tags_platform")
-
-colorscheme apprentice
+"#colorscheme apprentice
+colorscheme molokai
 
 "remove any window stuff
 if has('gui')
@@ -173,13 +171,6 @@ else
     let $BASH_ENV = '~/.bashrc'
     set shellcmdflag=-O\ expand_aliases\ -c
 
-    set path=.,../../../platform/src/**,**
     set grepprg=grep\ -n\ --exclude=*.d\ $*\ /dev/null
     set wildignore+=*.so,*.d,*.o
-
-    " Search Game
-    nnoremap <F11> :grep! -rI <C-R><C-W> code
-
-    " Search Platform
-    nnoremap <F12> :grep! -rI <C-R><C-W> ../../../platform/src
 endif

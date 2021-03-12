@@ -1,8 +1,3 @@
-" It is essential that these lines are called before enabling filetype detection, so I would recommend putting them at the top of your vimrc file.
-" pathogen
-call pathogen#infect()
-call pathogen#helptags()
-
 " ~/.vimrc (configuration file for vim only)
 " skeletons
 function! SKEL_spec()

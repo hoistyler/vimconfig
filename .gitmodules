@@ -1,18 +1,18 @@
 [submodule "bundle/fugitive"]
-	path = bundle/fugitive
+	path = pack/vendor/start/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
 [submodule "bundle/sensible"]
-    path = bundle/vim-sensible
+	path = pack/vendor/start/vim-sensible
 	url = git://github.com/tpope/vim-sensible.git
 [submodule "bundle/ctrlp"]
-	path = bundle/ctrlp
+	path = pack/vendor/start/ctrlp
 	url = https://github.com/kien/ctrlp.vim
 [submodule "bundle/molokai"]
-	path = bundle/molokai
+	path = pack/vendor/start/molokai
 	url = https://github.com/tomasr/molokai
 [submodule "bundle/ack"]
-	path = bundle/ack
+	path = pack/vendor/start/ack
 	url = https://github.com/mileszs/ack.vim.git
 [submodule "bundle/Apprentice"]
-	path = bundle/Apprentice
+	path = pack/vendor/start/Apprentice
 	url = https://github.com/romainl/Apprentice
